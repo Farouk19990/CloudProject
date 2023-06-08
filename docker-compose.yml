@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nestjs:
+    container_name: backend 
+    image: farouk99/back_repo
+    environment:
+      - DATABASE_HOST=data
+    ports:
+      - 3000:3000 
+  angular:
+    container_name: frontend
+    image: farouk99/front_repo
+    ports:
+      - 80:80  
+  data:
+    image: farouk99/db_repo
+    container_name: data
+    environment:
+      MYSQL_DATABASE: mall
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mall.sql:/docker-entrypoint-initdb.d/mall.sql
