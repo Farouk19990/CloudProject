@@ -9,7 +9,7 @@ services:
       - 3000:3000 
   angular:
     container_name: frontend
-    image: farouk99/front_repo
+    image: farouk99/newfront_repo
     ports:
       - 80:80  
   data:
